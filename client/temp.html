@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<head>
+    <title>Bill Calculator</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: black;
+        }
+        .border {
+            margin: 10px;
+            border-weight: 10px;
+            border-color: grey;
+        }
+        .contain {
+            width: 300px;
+            margin: 15% auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        label {
+            margin-top: 20px;   
+            text-align: left;
+            display: block;
+            margin-top: 10px
+        }
+        input {
+            width: 100%;
+            height: 200%;
+            padding: 5px;
+            margin-top: 5px;
+            border: 1px solid;
+            border-radius: 8px;
+            background-color: lightblue;
+        }
+
+        button {
+            align: center;
+            width: 50%;
+            padding: 10px;
+            background-color: blue;
+            color: white;
+            margin-top: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    
+    </style>
+
+</head>
+<body>
+    <div class = "contain">
+    <div class = "border">
+    <h1>Bill Calculator</h1>
+    <form class = "billForm">
+        <label for = "billAmount">Enter Bill</label>
+        <input type = "number" id = "billAmount" required>
+        <br/>
+        <label for="tipPercentage">Enter tip Percentage</label>
+        <input type = "number" id = "tipPercentage" required>
+        <br/>
+        <button type = "button" onclick =calculateTip()>Calculate</button>
+    </form>
+        <div id = "finalAmount" name="finalAmount"></div>
+    </div>
+    </div>
+
+    <script>
+        function calculateTip() {
+            const bill = document.getElementById('billAmount').value;
+            const tipPercentage = document.getElementById('tipPercentage').value;
+            const tipAmount = (bill * tipPercentage) / 100;
+            const amount = document.getElementById('finalAmount').textContent = `Total Bill Amount: ${tipAmount}`;
+        }
+    </script>
+</body>
